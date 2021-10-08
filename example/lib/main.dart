@@ -33,15 +33,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void openCamera() {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (_) => CameraCamera(
-                  onFile: (file) {
-                    photos.add(file);
-                    Navigator.pop(context);
-                    setState(() {});
-                  },
-                )));
+      context,
+      MaterialPageRoute(
+        builder: (_) => CameraCamera(
+          enableCancel: true,
+          onFile: (file) {
+            photos.add(file);
+            Navigator.pop(context);
+            setState(() {});
+          },
+        ),
+      ),
+    );
   }
 
   @override
